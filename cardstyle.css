@@ -1,12 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100vh;
     margin: 0;
-    background-color: #102a42 ;
+    background-color: transparent ;
+    color: aliceblue;
 }
 
 #gameBoard {
@@ -43,16 +46,17 @@ body {
     align-items: center;
     justify-content: center;
     font-size: 24px;
-    border: 1px solid #ccc;
+    border: 2px solid #F5F1E3;
     border-radius: 10px;
 }
 
 .card-front {
-    background-color: #ccc;
+    background-color: #1B9AAA;
 }
 
 .card-back {
-    background-color: #fff;
+    background-color: #DDDBCB;
+    color: #050505;
     transform: rotateY(180deg);
 }
 
@@ -62,7 +66,7 @@ body {
 
 #endMessage {
     font-size: 24px;
-    color: green;
+    color: #F5F1E3;
     margin-bottom: 20px;
 }
 

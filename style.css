@@ -247,7 +247,7 @@ body {
 }
 
 iframe {
-    border: 1px solid mediumvioletred;
+    border: none;
     width: 100%;
     height: 500px;
 }
