@@ -1,1 +1,273 @@
-kjhbutyut
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    color: aliceblue;
+    background: #081b29;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px 10%;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+    .logo {
+        font-size: 18px;
+        color: aliceblue;
+        text-decoration: none;
+        font-weight: 800;
+    }
+
+    .menu a {
+        font-size: 18px;
+        color: aliceblue;
+        text-decoration: none;
+        font-weight: 600;
+        margin-left: 35px;
+        transition: transform 0.4s, color 0.4s;
+        
+    }
+    .header a:hover {
+        color: mediumvioletred;
+        scale: 1.2;
+    }
+    
+
+.homepage {
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    margin-left: 50px;
+    background: url('pictures/outline_narumoi.png') no-repeat right bottom;
+    background-size: 35%;
+    background-attachment: fixed;
+    justify-content: space-between;
+}
+
+.content h1 {
+    font-size: 56px;
+}
+
+.content h2 {
+    font-size: 48px;
+}
+
+.content h3 {
+    font-size: 24px;
+    color: mediumvioletred;
+}
+
+.pseudo {
+    font-size: 56px;
+    color: mediumvioletred;
+}
+
+.content p {
+    font-size: 16px;
+    max-width: 600px;
+}
+
+.content h2, .pseudo {
+    display: inline-block;
+}
+
+.narumoi {
+    width: 300px;
+    height: 300px;
+}
+
+.homebutton {
+    width: 30px;
+    height: 30px;
+}
+
+.social {
+    position: absolute;
+    width: 100px;
+    bottom: 100px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.social a {
+    display: flex;
+    width: 40px;
+    height: 40px;
+    background-color: transparent;
+    border: 2px solid aliceblue;
+    border-radius: 50%;
+    font-size: 20px;
+    color: aliceblue;
+    text-decoration: none;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.4s, color 0.4s;
+}
+
+.social a:hover {
+    color: mediumvioletred;
+    transform: scale(1.2);
+}
+
+.projects-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.projects {
+    border-collapse: collapse;
+    background-color: #102a42;
+    border: 2px solid aliceblue;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.projects th, .projects td {
+    padding: 20px;
+    text-align: center;
+    border: 1px solid aliceblue;
+}
+
+.projects th {
+    background-color: #081b29;
+    color: mediumvioletred;
+    font-size: 24px;
+}
+
+.projects td {
+    color: aliceblue;
+}
+
+.projects img {
+    max-width: 150px;
+    height: 150px;
+    border-radius: 10px;
+}
+
+.table-title {
+    background-color: transparent;
+    color: aliceblue;
+    font-size: 32px;
+    text-align: center;
+}
+
+.project_icon:hover {
+    transition: transform 0.4s, color 0.4s;
+    transform: scale(1.2);
+}
+
+.box {
+    position:relative;
+    height: 100%;
+    width: 500px;
+  }
+  .box:after {
+    content:"";
+    position:absolute;
+    width:100%;
+    height:100%;
+    background-color:mediumvioletred;
+    border-top-left-radius: 80%;
+    border-top-right-radius: 20%;
+    border-bottom-left-radius: 20%;
+    filter: hue-rotate(mediumvioletred);
+    opacity:0;
+    transition: all 0.5s ease 0s;
+  }
+  .box:hover:after {
+    opacity:0.5;
+  }
+  
+  .box {
+    width:550px;
+    height:500px;
+    border-top-left-radius: 80%;
+    border-top-right-radius: 20%;
+    border-bottom-left-radius: 20%;
+    bottom: 0;
+    right: 0;
+    background-color:transparent;
+    position: absolute;
+  }
+  
+  .contact-info {
+    padding: 100px 10%;
+}
+
+.contact-info h1 {
+    font-size: 56px;
+    margin-bottom: 20px;
+}
+
+.contact-info ul {
+    list-style: none;
+    margin-bottom: 20px;
+}
+
+.contact-info ul li {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.contact-info ul li a {
+    color: mediumvioletred;
+    text-decoration: none;
+}
+
+.contact-info ul li a:hover {
+    text-decoration: underline;
+}
+
+.infocontact {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #102a42;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.infocontact label {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.infocontact input, .infocontact textarea {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid aliceblue;
+    border-radius: 5px;
+    background-color: #081b29;
+    color: aliceblue;
+}
+
+.infocontact button {
+    padding: 10px 20px;
+    font-size: 18px;
+    color: aliceblue;
+    background-color: mediumvioletred;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.4s;
+}
+
+.infocontact button:hover {
+    background-color: #d63384;
+}
