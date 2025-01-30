@@ -17,39 +17,44 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    padding: 30px 10%;
-    background-color: transparent;
+    padding: 20px 10%;
+    background-color: #102a42;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    z-index: 1000;
 }
 
-    .logo {
-        font-size: 18px;
-        color: aliceblue;
-        text-decoration: none;
-        font-weight: 800;
-    }
+.logo {
+    font-size: 18px;
+    color: aliceblue;
+    text-decoration: none;
+    font-weight: 800;
+}
 
-    .menu a {
-        font-size: 18px;
-        color: aliceblue;
-        text-decoration: none;
-        font-weight: 600;
-        margin-left: 35px;
-        transition: transform 0.4s, color 0.4s;
-        
-    }
-    .header a:hover {
-        color: mediumvioletred;
-        scale: 1.2;
-    }
-    
+.menu a {
+    font-size: 18px;
+    color: aliceblue;
+    text-decoration: none;
+    font-weight: 600;
+    margin-left: 35px;
+    transition: transform 0.4s, color 0.4s;
+}
+
+.menu a:hover {
+    color: mediumvioletred;
+    transform: scale(1.2);
+}
+
+.header .menu a {
+    display: inline-block;
+}
 
 .homepage {
     display: flex;
     align-items: center;
     height: 100vh;
+    padding-top: 100px;
     margin-left: 50px;
     background: url('pictures/outline_narumoi.png') no-repeat right bottom;
     background-size: 35%;
@@ -127,6 +132,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    padding-top: 350px; 
 }
 
 .projects {
@@ -172,42 +178,9 @@ body {
     transform: scale(1.2);
 }
 
-.box {
-    position:relative;
-    height: 100%;
-    width: 500px;
-  }
-  .box:after {
-    content:"";
-    position:absolute;
-    width:100%;
-    height:100%;
-    background-color:mediumvioletred;
-    border-top-left-radius: 80%;
-    border-top-right-radius: 20%;
-    border-bottom-left-radius: 20%;
-    filter: hue-rotate(mediumvioletred);
-    opacity:0;
-    transition: all 0.5s ease 0s;
-  }
-  .box:hover:after {
-    opacity:0.5;
-  }
-  
-  .box {
-    width:550px;
-    height:500px;
-    border-top-left-radius: 80%;
-    border-top-right-radius: 20%;
-    border-bottom-left-radius: 20%;
-    bottom: 0;
-    right: 0;
-    background-color:transparent;
-    position: absolute;
-  }
-  
-  .contact-info {
+.contact-info {
     padding: 100px 10%;
+    margin-top: 100px;
 }
 
 .contact-info h1 {
@@ -241,6 +214,7 @@ body {
     background-color: #102a42;
     padding: 20px;
     border-radius: 10px;
+    margin-top: 40px;
 }
 
 .infocontact label {
@@ -271,3 +245,39 @@ body {
 .infocontact button:hover {
     background-color: #d63384;
 }
+
+iframe {
+    border: 1px solid mediumvioletred;
+    width: 100%;
+    height: 500px;
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.popup iframe {
+    width: 60%;
+    height: 90%;
+}
+
+.popup button {
+    position: absolute;
+    top: 50px;
+    right: 200px;
+    padding: 10px;
+    background-color: #fff;
+    border: none;
+    border-radius: 10%;
+    cursor: pointer;
+}
+

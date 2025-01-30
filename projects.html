@@ -35,7 +35,38 @@
                     <td>This is an example to showcase the table</td>
                     <td><a href="#"><img class="project_icon" src='pictures/outline_narumoi.png'></a></td>
                 </tr>
+                <tr>
+                    <td>Memory Game</td>
+                    <td>A card guessing memory game that you can play on your browser</td>
+                    <td><a href="#" class="project-link" data-src="memory_game.html"><img class="project_icon" src='pictures/cards.png'></a></td>
+                </tr>                
+                <tr>
+                    <td>Example</td>
+                    <td>This is an example to showcase the table</td>
+                    <td><a href="#"><img class="project_icon" src='pictures/outline_narumoi.png'></a></td>
+                </tr>
             </table>
         </div>
+        <div id="popup" class="popup">
+            <iframe id="popupIframe" src="" frameborder="0"></iframe>
+            <button onclick="closePopup()">Close</button>
+        </div>
+        <script>
+            document.querySelectorAll('.project-link').forEach(function(link) {
+    link.addEventListener('click', function(event) {
+        event.preventDefault();
+        var popup = document.getElementById('popup');
+        var popupIframe = document.getElementById('popupIframe');
+        popupIframe.src = this.getAttribute('data-src');
+        popup.style.display = 'flex';
+    });
+});
+
+function closePopup() {
+    var popup = document.getElementById('popup');
+    popup.style.display = 'none';
+}
+
+        </script>                
     </body>
 </html>
