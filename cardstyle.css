@@ -14,8 +14,8 @@ body {
 
 #gameBoard {
     display: grid;
-    grid-template-columns: repeat(4, 100px);
-    grid-gap: 10px;
+    grid-template-columns: repeat(8, 100px);
+    grid-gap: 20px;
     margin-bottom: 20px;
 }
 
@@ -41,6 +41,8 @@ body {
     position: absolute;
     width: 100%;
     height: 100%;
+    background-size: cover;
+    background-position: center;
     backface-visibility: hidden;
     display: flex;
     align-items: center;
@@ -51,9 +53,16 @@ body {
 }
 
 .card-front {
-    background-color: #1B9AAA;
+    background-color: #C5E6A6;
+    background-image: url('pictures/outline_narumoi_medredviolet.png');
 }
 
+.card-front:hover {
+    scale: 1.2;
+    transition: 0.4s;
+    background-color: #FFD29D ;
+    background-image: url('pictures/outline_narumoi_redorange.png');
+}
 .card-back {
     background-color: #DDDBCB;
     color: #050505;
