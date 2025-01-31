@@ -354,3 +354,29 @@ img {
     max-width: 100%;
     height: auto;
 }
+
+html, body {
+    margin: 0;
+    height: 200vh;
+    overflow-x: hidden;
+}
+
+.firefly {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background: yellow;
+    border-radius: 50%;
+    box-shadow: 0 0 10px yellow;
+    animation: move 10s linear infinite, glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes move {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(calc(100vw - 5px), calc(100vh - 5px)); }
+}
+
+@keyframes glow {
+    0% { opacity: 0.2; }
+    100% { opacity: 1; }
+}
