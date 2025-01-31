@@ -328,4 +328,29 @@ iframe {
 }
 
 
+@media (max-width: 768px) {
+    .header {
+        padding: 10px 5%;
+    }
+    .menu a {
+        font-size: 16px;
+        margin-left: 20px;
+    }
+    .homepage {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin-left: 0;
+    }
+    .content h1, .content h2, .content h3 {
+        font-size: 32px;
+    }
+    .social {
+        bottom: 50px;
+    }
+}
 
+img {
+    max-width: 100%;
+    height: auto;
+}
