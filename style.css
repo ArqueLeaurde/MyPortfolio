@@ -676,3 +676,6 @@ audio::-webkit-media-controls-time-remaining-display {
     cursor: pointer;
 }
 
+.popup button:hover {
+    background-color: #d63384;
+}
