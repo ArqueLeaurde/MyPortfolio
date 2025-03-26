@@ -1,72 +1,85 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>My Projects</title>
-        <link rel="stylesheet" href="style.css">
-        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    </head>
-    <body>
-        <header class="header">
-            <a href="#" class="logo">ArqueLeaurde</a>
-            <nav class="menu">
-                <a href="./index.html"><i class='bx bx-home'></i></a>
-                <a href= "./aboutme.html">About Me</a>
-                <a href= "./projects.html">My Projects</a>
-                <a href= "./contact.html">Contact</a>
-            </nav>
-        </header>
-        <div class="projects-container">
-            <table class="projects">
-                <tr>
-                    <th colspan="3"><h1 class="table-title">My Projects</h1></th>
-                </tr>
-                <tr>
-                    <th>Project</th>
-                    <th>Description</th>
-                    <th>Link</th>
-                </tr>
-                <tr>
-                    <td>Tic Tac Toe</td>
-                    <td>A simple Tic Tac Toe game implemented in C++. w/ Portet Wilfried</td>
-                    <td><a href="https://github.com/PortetWilfried/Tic-tac-Toe"><img class="project_icon" src='pictures/tictactoe.png'></a></td>
-                </tr>
-                <tr>
-                    <td>Example</td>
-                    <td>This is an example to showcase the table</td>
-                    <td><a href="#"><img class="project_icon" src='pictures/outline_narumoi.png'></a></td>
-                </tr>
-                <tr>
-                    <td>Memory Game</td>
-                    <td>A card guessing memory game that you can play on your browser</td>
-                    <td><a href="#" class="project-link" data-src="memory_game.html"><img class="project_icon" src='pictures/cards.png'></a></td>
-                </tr>                
-                <tr>
-                    <td>Example</td>
-                    <td>This is an example to showcase the table</td>
-                    <td><a href="#"><img class="project_icon" src='pictures/outline_narumoi.png'></a></td>
-                </tr>
-            </table>
-        </div>
-        <div id="popup" class="popup">
-            <iframe id="popupIframe" src="" frameborder="0"></iframe>
-            <button onclick="closePopup()">Close</button>
-        </div>
-        <script>
-            document.querySelectorAll('.project-link').forEach(function(link) {
-    link.addEventListener('click', function(event) {
-        event.preventDefault();
-        var popup = document.getElementById('popup');
-        var popupIframe = document.getElementById('popupIframe');
-        popupIframe.src = this.getAttribute('data-src');
-        popup.style.display = 'flex';
-    });
-});
+<head>
+    <title>My Projects</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <header class="header">
+        <a href="#" class="logo">ArqueLeaurde</a>
+        <nav class="menu">
+            <a href="./index.html"><i class='bx bx-home'></i></a>
+            <a href="./index.html#aboutme">About Me</a>
+            <a href="./projects.html">My Projects</a>
+            <a href="./contact.html">Contact</a>
+        </nav>
+    </header>
 
-function closePopup() {
-    var popup = document.getElementById('popup');
-    popup.style.display = 'none';
-}
+    <div class="projects-container">
+        <table class="projects">
+            <tr>
+                <th colspan="3">
+                    <h1 class="table-title">My Projects</h1>
+                    <div class="filter-buttons">
+                        <button data-filter="all" class="active">Tout</button>
+                        <button data-filter="school">Scolaire</button>
+                        <button data-filter="personal">Personnel</button>
+                        <button data-filter="professional">Professionnel</button>
+                        <button data-filter="other">Autre</button>
+                    </div>
+                </th>
+            </tr>
+            <tr>
+                <th>Project</th>
+                <th>Description</th>
+                <th>Link</th>
+            </tr>
+            <tr data-category="school">
+                <td class ="project-title">Tic Tac Toe</td>
+                <td class ="project-description">Un jeu de morpion en C++. w/ Portet Wilfried</td>
+                <td><a href="https://github.com/PortetWilfried/Tic-tac-Toe"><img class="project_icon" src='pictures/tictactoe.png'></a></td>
+            </tr>
+            <tr data-category="personal">
+                <td class ="project-title">Memory Game</td>
+                <td class ="project-description">Un jeu de mémoire basé sur des cartes jouable sur navigateur.</td>
+                <td><a href="#" class="project-link" data-src="memory_game.html"><img class="project_icon" src='pictures/cards.png'></a></td>
+            </tr>
+            <tr data-category="professional">
+                <td class ="project-title">Site Web Entreprise</td>
+                <td class ="project-description">Un site vitrine développé pour une startup.</td>
+                <td><a href="#"><img class="project_icon" src='pictures/company_website.png'></a></td>
+            </tr>
+            <tr data-category="school">
+                <td class ="project-title">Space Frontier</td>
+                <td class ="project-description">Un projet scolaire d'exploration spatiale en CLI.</td>
+                <td><a href="#"><img class="project_icon" src='pictures/ai_experiment.png'></a></td>
+            </tr>
+        </table>
+    </div>
 
-        </script>                
-    </body>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const filterButtons = document.querySelectorAll(".filter-buttons button");
+            const projectRows = document.querySelectorAll(".projects tr[data-category]");
+
+            filterButtons.forEach(button => {
+                button.addEventListener("click", function () {
+                    filterButtons.forEach(btn => btn.classList.remove("active"));
+                    this.classList.add("active");
+
+                    const filterValue = this.getAttribute("data-filter");
+
+                    projectRows.forEach(row => {
+                        if (filterValue === "all" || row.getAttribute("data-category") === filterValue) {
+                            row.style.display = "";
+                        } else {
+                            row.style.display = "none";
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
 </html>

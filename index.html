@@ -24,7 +24,7 @@
             <h2><pre>to </pre></h2>
             <h2 class="pseudo">ArqueLeaurde</h2>
             <h2>'s Portfolio</h2>
-            <h3>This is a personal portfolio website | HTML CSS only.</h3>
+            <h3>This is a personal portfolio website.</h3>
         </div>
         <div class="social">
             <a href="#"><i class='bx bxl-discord-alt'></i></a>
@@ -34,27 +34,141 @@
     <section id="aboutme">
         <div class="content">
             <h2>About Me</h2>
-            <p>Hello! I'm Arthur, aka. ArqueLeaurde, passionate developer from France with a love for drawing and manga.
+            <p>Hello! I'm Arthur, a passionate developer and artist based in France. </p>
             <p>When I'm not coding, you'll find me immersed in the world of asian culture. This creative outlet not only fuels my imagination but also inspires my approach to problem-solving in development.</p>
             <p>I believe that the blend of technical expertise and artistic creativity allows me to bring a unique perspective to every project I undertake. Whether it's developing a sleek website, crafting a complex application, or sketching a new character, I pour my heart and soul into everything I do.</p>
             <p>Feel free to explore my portfolio to see some of my projects and artworks.</p>
         </div>
     </section>
-    <div class="selection-zone"></div>
-    <!--generated script to create fireflies-->
-    <script>
-        const numFireflies = 50;
+        <section id="technologies">
+            <h2>Technologies</h2>
+            <!-- Boutons de filtre -->
+            <div class="filter-buttons">
+              <button data-filter="tout" class="active">Tout</button>
+              <button data-filter="langage">Langage</button>
+              <button data-filter="base-de-donnees">Base de données</button>
+              <button data-filter="outil">Outil</button>
+            </div>
+            
+            <!-- Grille des technologies -->
+            <div class="tech-grid">
+              <!-- Langages -->
+              <div class="tech-item langage">
+                <a href="https://developer.mozilla.org/fr/docs/Web/Guide/HTML/HTML5" target="_blank">
+                  <img src="https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white&logoSize=auto" alt="HTML5" />
+                </a>
+                <span>HTML5</span>
+              </div>
+              <div class="tech-item langage">
+                <a href="https://developer.mozilla.org/fr/docs/Web/CSS" target="_blank">
+                  <img src="https://img.shields.io/badge/CSS-663399?style=flat-square&logo=css&logoColor=white&logoSize=auto" alt="CSS" />
+                </a>
+                <span>CSS</span>
+              </div>
+              <div class="tech-item langage">
+                <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript" target="_blank">
+                  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black&logoSize=auto" alt="JavaScript" />
+                </a>
+                <span>JavaScript</span>
+              </div>
+              <div class="tech-item langage">
+                <a href="https://www.python.org/" target="_blank">
+                  <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white&logoSize=auto" alt="Python" />
+                </a>
+                <span>Python</span>
+              </div>
+              <div class="tech-item langage">
+                <a href="https://isocpp.org/" target="_blank">
+                  <img src="https://img.shields.io/badge/C++-00599C?style=flat-square&logo=cplusplus&logoColor=white" alt="C++" />
+                </a>
+                <span>C++</span>
+              </div>
+              <div class="tech-item langage">
+                <a href ="c.html" target="_blank">
+                  <img src="https://img.shields.io/badge/language-00599C?style=flat-square&logo=c&logoColor=white" alt="C" />
+                </a>
+                <span>C</span>
+              </div>
+              <!-- Base de données -->
+              <div class="tech-item base-de-donnees">
+                <a href="https://mariadb.org/" target="_blank">
+                  <img src="https://img.shields.io/badge/MariaDB-003545?style=flat-square&logo=mariadb&logoColor=white" alt="MariaDB" />
+                </a>
+                <span>MariaDB</span>
+              </div>
+              <!-- Outils -->
+              <div class="tech-item outil">
+                <a href="https://code.visualstudio.com/" target="_blank">
+                  <img src="https://img.shields.io/badge/VS_Code-007ACC?style=flat-square&logo=visualstudiocode&logoColor=white&logoSize=auto" alt="VS Code" />
+                </a>
+                <span>VS Code</span>
+              </div>
+              <div class="tech-item outil">
+                <a href="https://windows.microsoft.com" target="_blank">
+                  <img src="https://img.shields.io/badge/Windows-0078D6?style=flat-square&logo=windows&logoColor=white&logoSize=auto" alt="Windows" />
+                </a>
+                <span>Windows</span>
+              </div>
+              <div class="tech-item outil">
+                <a href="https://www.linux.org/" target="_blank">
+                  <img src="https://img.shields.io/badge/Linux-FCC624?style=flat-square&logo=linux&logoColor=white&logoSize=auto" alt="Linux" />
+                </a>
+                <span>Linux</span>
+              </div>
+              <div class="tech-item outil">
+                <a href="https://www.adobe.com/fr/products/premiere.html" target="_blank">
+                  <img src="https://img.shields.io/badge/Premiere_Pro-9999FF?style=flat-square&logo=adobepremierepro&logoColor=white&logoSize=auto" alt="Premiere Pro" />
+                </a>
+                <span>Premiere Pro</span>
+              </div>
+            </div>
+        </section>
+                
+          <!-- Script pour le filtrage -->
+          <script>
+            document.addEventListener('DOMContentLoaded', function() {
+              const filterButtons = document.querySelectorAll('.filter-buttons button');
+              const techItems = document.querySelectorAll('.tech-item');
+              
+              filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                  const filter = this.getAttribute('data-filter');
+                  // Retirer la classe active de tous les boutons
+                  filterButtons.forEach(btn => btn.classList.remove('active'));
+                  // Ajouter la classe active sur le bouton cliqué
+                  this.classList.add('active');
+                  
+                  // Afficher ou masquer les éléments selon le filtre
+                  techItems.forEach(item => {
+                    if (filter === 'tout' || item.classList.contains(filter)) {
+                      item.style.display = '';
+                    } else {
+                      item.style.display = 'none';
+                    }
+                  });
+                });
+              });
+            });
+          </script>
 
-        for (let i = 0; i < numFireflies; i++) {
-            const firefly = document.createElement('div');
-            firefly.classList.add('firefly');
-            firefly.style.left = `${Math.random() * 100}vw`;
-            firefly.style.top = `${Math.random() * 100}vh`;
-            firefly.style.animationDelay = `${Math.random() * 10}s`;
-            firefly.style.animationDuration = `${Math.random() * 10 + 5}s`;
-            document.body.appendChild(firefly);
-        }
-    </script>
+<!-- Script générant les lucioles -->
+<script>
+    const numFireflies = 50;
+
+    for (let i = 0; i < numFireflies; i++) {
+        const firefly = document.createElement('div');
+        firefly.classList.add('firefly');
+        firefly.style.left = `${Math.random() * 100}vw`;
+        firefly.style.top = `${Math.random() * 100}vh`;
+        // Utilisation d'un délai négatif pour démarrer l'animation "en cours"
+        firefly.style.animationDelay = `-${Math.random() * 10}s`;
+        firefly.style.animationDuration = `${Math.random() * 10 + 5}s`;
+        document.body.appendChild(firefly);
+    }
+</script>
 </body>
+<footer>
+    <p>© 2025 ArqueLeaurde. All rights reserved. Designed with ❤️ by <a href="ArqueLeaurde.github.io">ArqueLeaurde</a></p>
+</footer>
 
 </html>
