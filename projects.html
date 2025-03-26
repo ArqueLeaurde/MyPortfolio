@@ -48,38 +48,65 @@
             <tr data-category="professional">
                 <td class ="project-title">Site Web</td>
                 <td class ="project-description">Un site vitrine fait avec wordpress pour l'association du centre LGBT Berry.</td>
-                <td><a href="#"><img class="project_icon" src='pictures/company_website.png'></a></td>
+                <td><a href="https://hackathon-lgbt.estiam-bourges.fr/"><img class="project_icon" src='pictures/rose.png'></a></td>
             </tr>
             <tr data-category="other">
-                <td class ="project-title">Space Frontier</td>
-                <td class ="project-description">Un jeu d'exploration spatiale en CLI.</td>
-                <td><a href="#"><img class="project_icon" src='pictures/ai_experiment.png'></a></td>
+                <td class ="project-title">[Soon] Space Frontier</td>
+                <td class ="project-description">[Soon] Un jeu d'exploration spatiale en CLI.</td>
+                <td><a href="#"><img class="project_icon" src='pictures/outline_narumoi.png'></a></td>
             </tr>
         </table>
     </div>
 
+        <!-- Popup (masqué par défaut) -->
+        <div id="popup" class="popup">
+            <iframe id="popupIframe" src=""></iframe>
+            <button id="closePopup">Fermer</button>
+        </div>
+  
+
+
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const filterButtons = document.querySelectorAll(".filter-buttons button");
-            const projectRows = document.querySelectorAll(".projects tr[data-category]");
+            document.addEventListener("DOMContentLoaded", function () {
+        const filterButtons = document.querySelectorAll(".filter-buttons button");
+        const projectRows = document.querySelectorAll(".projects tr[data-category]");
+        const popup = document.getElementById('popup');
+        const popupIframe = document.getElementById('popupIframe');
+        const closeButton = document.getElementById('closePopup');
 
-            filterButtons.forEach(button => {
-                button.addEventListener("click", function () {
-                    filterButtons.forEach(btn => btn.classList.remove("active"));
-                    this.classList.add("active");
+        // Filtrage des projets
+        filterButtons.forEach(button => {
+            button.addEventListener("click", function () {
+                filterButtons.forEach(btn => btn.classList.remove("active"));
+                this.classList.add("active");
 
-                    const filterValue = this.getAttribute("data-filter");
+                const filterValue = this.getAttribute("data-filter");
 
-                    projectRows.forEach(row => {
-                        if (filterValue === "all" || row.getAttribute("data-category") === filterValue) {
-                            row.style.display = "";
-                        } else {
-                            row.style.display = "none";
-                        }
-                    });
+                projectRows.forEach(row => {
+                    if (filterValue === "all" || row.getAttribute("data-category") === filterValue) {
+                        row.style.display = "";
+                    } else {
+                        row.style.display = "none";
+                    }
                 });
             });
         });
+
+        // Affichage du popup lors du clic sur le lien du projet Memory Game
+        document.querySelectorAll('.project-link').forEach(function (link) {
+            link.addEventListener('click', function (event) {
+                event.preventDefault();
+                popupIframe.src = this.getAttribute('data-src');
+                popup.style.display = 'flex';
+            });
+        });
+
+        // Fermeture du popup via le bouton de fermeture
+        closeButton.addEventListener('click', function () {
+            popup.style.display = 'none';
+            popupIframe.src = ""; // Réinitialise l’iframe
+        });
+    });     
     </script>
 </body>
 </html>
