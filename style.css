@@ -424,6 +424,7 @@ audio::-webkit-media-controls-time-remaining-display {
 #technologies {
     padding-top: 2rem;
     text-align: center;
+    margin-bottom: 2rem;
   }
   
   #technologies h2 {
@@ -679,3 +680,106 @@ audio::-webkit-media-controls-time-remaining-display {
 .popup button:hover {
     background-color: #d63384;
 }
+
+
+#certifications {
+    padding-top: 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  #certifications h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .certificate-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1.5rem;
+    justify-items: center;
+    align-items: center;
+    max-width: 800px;
+    margin: 0 auto;
+    margin-top: 2rem;
+    margin-bottom: 5rem;
+}
+
+    /* Responsive */
+    @media (max-width: 1200px) {
+        .certificate-grid {
+            grid-template-columns: repeat(4, 1fr);
+        }
+    }
+
+    @media (max-width: 900px) {
+        .certificate-grid {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+
+    @media (max-width: 600px) {
+        .certificate-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (max-width: 400px) {
+        .certificate-grid {
+            grid-template-columns: repeat(1, 1fr);
+        }
+    }
+
+  
+  .certificate-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 200px;
+    max-height: 200px;
+    padding: 1rem;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+  }
+  
+  .certificate-item:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    border: 1px solid aliceblue;
+  }
+  
+  .certificate-item img {
+    width: 100px;
+    height: 75px;
+    object-fit: contain;
+    margin-bottom: 0.1rem;
+  }
+  
+  .certificate-item span {
+    font-size: 1rem;
+    font-weight: bold;
+    color: aliceblue;
+    text-align: center;
+  }
+
+  .filter-buttons-certifications {
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  
+  .filter-buttons-certifications button {
+    margin: 0 0.5rem;
+    padding: 0.5rem 1rem;
+    background-color: #102a42;
+    color: aliceblue;
+    border: 1px solid aliceblue;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .filter-buttons-certifications button.active,
+  .filter-buttons-certifications button:hover {
+    background-color: mediumvioletred;
+  }

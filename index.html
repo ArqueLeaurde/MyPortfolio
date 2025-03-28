@@ -122,33 +122,83 @@
               </div>
             </div>
         </section>
-                
-          <!-- Script pour le filtrage -->
-          <script>
-            document.addEventListener('DOMContentLoaded', function() {
-              const filterButtons = document.querySelectorAll('.filter-buttons button');
-              const techItems = document.querySelectorAll('.tech-item');
-              
-              filterButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                  const filter = this.getAttribute('data-filter');
-                  // Retirer la classe active de tous les boutons
-                  filterButtons.forEach(btn => btn.classList.remove('active'));
-                  // Ajouter la classe active sur le bouton cliqué
-                  this.classList.add('active');
-                  
-                  // Afficher ou masquer les éléments selon le filtre
-                  techItems.forEach(item => {
-                    if (filter === 'tout' || item.classList.contains(filter)) {
-                      item.style.display = '';
-                    } else {
-                      item.style.display = 'none';
-                    }
-                  });
-                });
+
+        <section id="certifications">
+            <h2>Certifications</h2>
+            <div class="filter-buttons-certifications">
+              <button data-filter="tout" class="active">Tout</button>
+              <button data-filter="langage">Langue</button>
+              <button data-filter="info">Informatique</button>
+              <button data-filter="other">Autre</button>
+            </div>
+            <div class="certificate-grid">
+                <div class="certificate-item langage">
+                    <a href="https://www.cambridgeenglish.org/fr/exams-and-tests/cambridge-english-certificate-cec/" target="_blank">
+                        <img src="./badges/cec_logo.png" alt="Cambridge English Certificate" />
+                    </a>
+                    <span>CEC - Advanced C1</span>
+                </div>
+                <div class="certificate-item other">
+                  <a href="https://www.cswu.cn/" target="_blank">
+                      <img src="./badges/ccmc_logo.png" alt="Chongqing City Management College" />
+                  </a>
+                  <span>CCMC - Certificate of Honor</span>
+              </div>
+            </div>
+        </section>
+
+        
+        <script>  
+        // Script de filtrage des technologies et certifications      
+        document.addEventListener('DOMContentLoaded', function() {
+          const filterButtons = document.querySelectorAll('.filter-buttons button');
+          const techItems = document.querySelectorAll('.tech-item');
+          const filterButtonsCertificate = document.querySelectorAll('.filter-buttons-certifications button');
+          const certifItems = document.querySelectorAll('.certificate-item');
+        
+          // Gestion du filtrage pour les technologies
+          filterButtons.forEach(button => {
+            button.addEventListener('click', function() {
+              const filter = this.getAttribute('data-filter');
+        
+              // Retirer la classe active de tous les boutons
+              filterButtons.forEach(btn => btn.classList.remove('active'));
+              // Ajouter la classe active sur le bouton cliqué
+              this.classList.add('active');
+        
+              // Afficher ou masquer les éléments selon le filtre
+              techItems.forEach(item => {
+                if (filter === 'tout' || item.classList.contains(filter)) {
+                  item.style.display = '';
+                } else {
+                  item.style.display = 'none';
+                }
               });
             });
-          </script>
+          });
+        
+          // Gestion du filtrage pour les certifications
+          filterButtonsCertificate.forEach(button => {
+            button.addEventListener('click', function() {
+              const filter = this.getAttribute('data-filter');
+        
+              // Retirer la classe active de tous les boutons
+              filterButtonsCertificate.forEach(btn => btn.classList.remove('active'));
+              // Ajouter la classe active sur le bouton cliqué
+              this.classList.add('active');
+        
+              // Afficher ou masquer les éléments selon le filtre
+              certifItems.forEach(item => {
+                if (filter === 'tout' || item.classList.contains(filter)) {
+                  item.style.display = '';
+                } else {
+                  item.style.display = 'none';
+                }
+              });
+            });
+          });
+        });
+    </script>        
 
 <!-- Script générant les lucioles -->
 <script>
