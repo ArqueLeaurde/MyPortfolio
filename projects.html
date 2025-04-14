@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>My Projects</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style2.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
@@ -12,7 +12,17 @@
             <a href="./index.html"><i class='bx bx-home'></i></a>
             <a href="./index.html#aboutme">About Me</a>
             <a href="./projects.html">My Projects</a>
-        </nav>
+            <div class="theme-selector">
+              <select id="themeSelector">
+                <option value="">Dark</option>
+                <option value="theme-light">Light</option>
+                <option value="theme-cyberpunk">Cyberpunk</option>
+                <option value="theme-aqua">Aqua</option>
+                <option value="theme-soft">Soft</option>
+              </select>
+              <img src="https://img.icons8.com/?size=100&id=4669&format=png&color=FFFFFF" alt="Theme Icon" class="theme-icon">
+            </div> 
+        </nav>    
     </header>
 
     <div class="projects-container">
@@ -105,5 +115,28 @@
         });
     });     
     </script>
+    <script>
+        // Script de sélection du thème
+        const selector = document.getElementById('themeSelector');
+      
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+          document.body.classList.add(savedTheme);
+          selector.value = savedTheme;
+        }
+      
+        selector.addEventListener('change', () => {
+          document.body.className = '';
+          const theme = selector.value;
+      
+          if (theme) {
+            document.body.classList.add(theme);
+            localStorage.setItem('theme', theme);
+          } else {
+            localStorage.removeItem('theme');
+          }
+        });
+      </script>
+      <script src="./scripts/theme_selector.js"></script>
 </body>
 </html>

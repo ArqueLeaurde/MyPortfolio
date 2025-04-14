@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>ArqueLeaurde's Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style2.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 
@@ -15,16 +15,26 @@
             <a href="./index.html"><i class='bx bx-home'></i></a>
             <a href="#aboutme">About Me</a>
             <a href="./projects.html">My Projects</a>
-        </nav>
+            <div class="theme-selector">
+              <select id="themeSelector">
+                <option value="">Dark</option>
+                <option value="theme-light">Light</option>
+                <option value="theme-cyberpunk">Cyberpunk</option>
+                <option value="theme-aqua">Aqua</option>
+                <option value="theme-soft">Soft</option>
+              </select>
+              <img src="https://img.icons8.com/?size=100&id=4669&format=png&color=FFFFFF" alt="Theme Icon" class="theme-icon">
+            </div> 
+        </nav>    
     </header>
     <section class="homepage">
         <div class="content">
-            <h1>Welcome</h1>
-            <h2><pre>to </pre></h2>
-            <h2 class="pseudo">ArqueLeaurde</h2>
-            <h2>'s Portfolio</h2>
-            <h3>This is a personal portfolio website.</h3>
-        </div>
+          <h2>Welcome to</h2>
+          <h2>
+            <span class="pseudo">ArqueLeaurde</span>'s Portfolio
+          </h2>            
+          <h3>This is a personal portfolio website.</h3>
+          </div>
         <div class="social">
             <a href="#"><i class='bx bxl-discord-alt'></i></a>
             <a href="https://github.com/ArqueLeaurde"><i class='bx bxl-github'></i></a>
@@ -88,6 +98,12 @@
                 </a>
                 <span>C</span>
               </div>
+              <div class="tech-item langage">
+                <a href="php.net" target="_blank">
+                  <img src="https://img.shields.io/badge/PHP-777BB4?style=flat-square&logo=php&logoColor=white" alt="PHP" />
+                </a>
+                <span>PHP</span>
+              </div>
               <!-- Base de données -->
               <div class="tech-item base-de-donnees">
                 <a href="https://mariadb.org/" target="_blank">
@@ -120,6 +136,11 @@
                 </a>
                 <span>Premiere Pro</span>
               </div>
+              <div class="tech-item outil">
+                <a href="arduino.cc" target="_blank">
+                  <img src="https://img.shields.io/badge/Arduino-00979D?style=flat-square&logo=arduino&logoColor=white" alt="Arduino" />
+                </a>
+                <span>Arduino</span>
             </div>
         </section>
 
@@ -146,7 +167,6 @@
               </div>
             </div>
         </section>
-
         
         <script>  
         // Script de filtrage des technologies et certifications      
@@ -198,26 +218,47 @@
             });
           });
         });
-    </script>        
-
+    </script>
+    <script>
+        // Affichage ou masquage des boutons de filtre selon les éléments présents
+      document.addEventListener('DOMContentLoaded', () => {
+        // Fonction de contrôle pour chaque bloc de filtres
+        function filterVisibilityCheck(buttonsSelector, itemsSelector) {
+          const buttons = document.querySelectorAll(buttonsSelector);
+          const items = document.querySelectorAll(itemsSelector);
+      
+          buttons.forEach(button => {
+            const filter = button.getAttribute('data-filter');
+            let hasItem = false;
+      
+            items.forEach(item => {
+              if (filter === 'tout' || item.classList.contains(filter)) {
+                hasItem = true;
+              }
+            });
+      
+            if (!hasItem) {
+              button.style.display = 'none';
+            } else {
+              button.style.display = ''; // s’assurer qu’il réapparaisse si on rechange
+            }
+          });
+        }
+      
+        // Appelle la fonction pour chaque section de filtre
+        filterVisibilityCheck('.filter-buttons button', '.tech-item');
+        filterVisibilityCheck('.filter-buttons-certifications button', '.certificate-item');
+      });
+      </script>
+        
 <!-- Script générant les lucioles -->
-<script>
-    const numFireflies = 50;
+<script src="./scripts/fireflies.js"></script>
 
-    for (let i = 0; i < numFireflies; i++) {
-        const firefly = document.createElement('div');
-        firefly.classList.add('firefly');
-        firefly.style.left = `${Math.random() * 100}vw`;
-        firefly.style.top = `${Math.random() * 100}vh`;
-        // Utilisation d'un délai négatif pour démarrer l'animation "en cours"
-        firefly.style.animationDelay = `-${Math.random() * 10}s`;
-        firefly.style.animationDuration = `${Math.random() * 10 + 5}s`;
-        document.body.appendChild(firefly);
-    }
-</script>
-</body>
+<!-- Script de sélection du thème -->
+<script src="./scripts/theme_selector.js"></script>
 <footer>
     <p>© 2025 ArqueLeaurde. All rights reserved. Designed with ❤️ by <a href="ArqueLeaurde.github.io">ArqueLeaurde</a></p>
 </footer>
+</body>
 
 </html>
