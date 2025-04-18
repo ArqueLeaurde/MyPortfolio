@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
   setupFilter(
     document.querySelectorAll('#certifications .filter-buttons-certifications button'),
     document.querySelectorAll('.certificate-item'),
-    'tout' // Special "all" value for certifications
+    'all' // Special "all" value for certifications
   );
 
   //
