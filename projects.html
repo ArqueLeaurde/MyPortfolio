@@ -2,27 +2,30 @@
 <html>
 <head>
     <title>My Projects</title>
-    <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="style.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
-    <header class="header">
+    <header class="header" role="banner">
         <a href="#" class="logo">ArqueLeaurde</a>
-        <nav class="menu">
-            <a href="./index.html"><i class='bx bx-home'></i></a>
-            <a href="./index.html#aboutme">About Me</a>
-            <a href="./projects.html">My Projects</a>
-            <div class="theme-selector">
-              <select id="themeSelector">
-                <option value="">Dark</option>
-                <option value="theme-light">Light</option>
-                <option value="theme-cyberpunk">Cyberpunk</option>
-                <option value="theme-aqua">Aqua</option>
-                <option value="theme-soft">Soft</option>
-              </select>
-              <img src="https://img.icons8.com/?size=100&id=4669&format=png&color=FFFFFF" alt="Theme Icon" class="theme-icon">
-            </div> 
-        </nav>    
+        <nav class="menu" role="navigation" aria-label="Main menu">
+          <a href="./index.html">
+            <i class='bx bx-home' aria-hidden="true"></i>
+            <span class="sr-only">Home</span>
+          </a>
+          <a href="#aboutme">About Me</a>
+          <a href="./projects.html">My Projects</a>
+          <div class="theme-selector" role="region" aria-label="Theme selector">
+            <select id="themeSelector">
+              <option value="">Dark</option>
+              <option value="theme-cyberpunk">Cyberpunk</option>
+              <option value="theme-soft">Soft</option>
+            </select>
+            <img src="https://img.icons8.com/?size=100&id=4669&format=png&color=FFFFFF"
+                 alt="Palette Icon"
+                 class="theme-icon">
+          </div>
+        </nav>
     </header>
 
     <div class="projects-container">
@@ -31,11 +34,11 @@
                 <th colspan="3">
                     <h1 class="table-title">My Projects</h1>
                     <div class="filter-buttons">
-                        <button data-filter="all" class="active">Tout</button>
-                        <button data-filter="school">Scolaire</button>
-                        <button data-filter="personal">Personnel</button>
-                        <button data-filter="professional">Professionnel</button>
-                        <button data-filter="other">Autre</button>
+                        <button data-filter="all" class="active">All</button>
+                        <button data-filter="school">School</button>
+                        <button data-filter="personal">Personnal</button>
+                        <button data-filter="professional">Professionnal</button>
+                        <button data-filter="other">Other</button>
                     </div>
                 </th>
             </tr>
@@ -46,22 +49,22 @@
             </tr>
             <tr data-category="school">
                 <td class ="project-title">Tic Tac Toe</td>
-                <td class ="project-description">Un jeu de morpion en C++. w/ Portet Wilfried</td>
+                <td class ="project-description">A Tic Tac Toe Game with QT GUI in C++. w/ Portet Wilfried</td>
                 <td><a href="https://github.com/PortetWilfried/Tic-tac-Toe" target="_blank"><img class="project_icon" src='pictures/tictactoe.png'></a></td>
             </tr>
-            <tr data-category="personal">
+            <tr data-category="school">
                 <td class ="project-title">Memory Game</td>
-                <td class ="project-description">Un jeu de mémoire basé sur des cartes jouable sur navigateur.</td>
+                <td class ="project-description">A browser playable memory-based card game.</td>
                 <td><a href="#" class="project-link" data-src="memory_game.html"><img class="project_icon" src='pictures/cards.png'></a></td>
             </tr>
-            <tr data-category="professional">
-                <td class ="project-title">Site Web Vitrine LGBT Berry</td>
-                <td class ="project-description">Un site vitrine fait avec wordpress lors d'un hackathon à l'ESTIAM pour l'association du centre LGBT Berry.</td>
+            <tr data-category="school">
+                <td class ="project-title">LGBT Berry showcase website</td>
+                <td class ="project-description">A showcase website made with Wordpress for LGBT Berry association during a hackathon at Estiam.</td>
                 <td><a href="https://hackathon-lgbt.estiam-bourges.fr/" target="_blank"><img class="project_icon" src='pictures/rose.png'></a></td>
             </tr>
-            <tr data-category="other">
+            <tr data-category="personal">
                 <td class ="project-title">Space Frontier</td>
-                <td class ="project-description">Un jeu d'exploration spatiale en CLI. Esthétique avec Replit</td>
+                <td class ="project-description">A python CLI Space exploration game. Style made with Replit</td>
                 <td><a href="https://replit.com/@arqueleaurde/Space-Frontier" target="_blank"><img class="project_icon" src='pictures/spacefr_icon.png'></a></td>
             </tr>
         </table>
@@ -70,73 +73,10 @@
         <!-- Popup (masqué par défaut) -->
         <div id="popup" class="popup">
             <iframe id="popupIframe" src=""></iframe>
-            <button id="closePopup">Fermer</button>
+            <button id="closePopup">Close</button>
         </div>
   
-    <script>
-            document.addEventListener("DOMContentLoaded", function () {
-        const filterButtons = document.querySelectorAll(".filter-buttons button");
-        const projectRows = document.querySelectorAll(".projects tr[data-category]");
-        const popup = document.getElementById('popup');
-        const popupIframe = document.getElementById('popupIframe');
-        const closeButton = document.getElementById('closePopup');
-
-        // Filtrage des projets
-        filterButtons.forEach(button => {
-            button.addEventListener("click", function () {
-                filterButtons.forEach(btn => btn.classList.remove("active"));
-                this.classList.add("active");
-
-                const filterValue = this.getAttribute("data-filter");
-
-                projectRows.forEach(row => {
-                    if (filterValue === "all" || row.getAttribute("data-category") === filterValue) {
-                        row.style.display = "";
-                    } else {
-                        row.style.display = "none";
-                    }
-                });
-            });
-        });
-
-        // Affichage du popup lors du clic sur le lien du projet Memory Game
-        document.querySelectorAll('.project-link').forEach(function (link) {
-            link.addEventListener('click', function (event) {
-                event.preventDefault();
-                popupIframe.src = this.getAttribute('data-src');
-                popup.style.display = 'flex';
-            });
-        });
-
-        // Fermeture du popup via le bouton de fermeture
-        closeButton.addEventListener('click', function () {
-            popup.style.display = 'none';
-            popupIframe.src = ""; // Réinitialise l’iframe
-        });
-    });     
-    </script>
-    <script>
-        // Script de sélection du thème
-        const selector = document.getElementById('themeSelector');
-      
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme) {
-          document.body.classList.add(savedTheme);
-          selector.value = savedTheme;
-        }
-      
-        selector.addEventListener('change', () => {
-          document.body.className = '';
-          const theme = selector.value;
-      
-          if (theme) {
-            document.body.classList.add(theme);
-            localStorage.setItem('theme', theme);
-          } else {
-            localStorage.removeItem('theme');
-          }
-        });
-      </script>
       <script src="./scripts/theme_selector.js"></script>
+      <script src="./scripts/filter.js"></script>
 </body>
 </html>

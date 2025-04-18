@@ -59,20 +59,6 @@
     color: var(--color-text);
   }
   
-  /* Light Theme*/
-  body.theme-light {
-    --color-bg: #f7f7f7;
-    --color-bg-overlay: rgba(255, 255, 255, 0.8);
-    --color-text: #111;
-    --color-primary: #d6e3f1;
-    --color-secondary: #c5c9d1;
-    --color-accent: #4a90e2;
-    --color-shadow: rgba(0, 0, 0, 0.2);
-    --color-firefly: powderblue;
-    --color-btn-hover: #4a90e2;
-    --color-outline: #111;
-  }
-  
   /* Cyberpunk Theme*/
   body.theme-cyberpunk {
     --color-bg: #0f0f0f;
@@ -87,20 +73,6 @@
     --color-outline: #39ff14;
   }
   
-  /* Aqua Theme*/
-  body.theme-aqua {
-      --color-text: #7AE582;
-      --color-bg: #004E64;          
-      --color-bg-overlay: rgba(8, 27, 41, 0.8); 
-      --color-primary: #00A5CF;                 
-      --color-secondary: #004E64;           
-      --color-accent: #9FFFCB;          
-      --color-shadow: rgba(0, 0, 0, 0.5);      
-      --color-firefly: rgb(142, 202, 255);
-      --color-btn-hover: var(--color-accent);
-      --color-outline: #9FFFCB;
-  }
-
   /* Soft Theme*/
   body.theme-soft {
     --color-bg: #1d1f2b;
@@ -594,3 +566,4 @@ footer {
         bottom: 50px;
     }
 }
+
